@@ -1,17 +1,31 @@
+/*
+**************************************************************
+IMPORT INTERNE REACT ET COMPOSANTS A REACT NATIVE + PROP-TYPES
+**************************************************************
+*/
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+/*
+ Import du fichier de configuration et de personnalisation d'affichage de la météo
+*/
 import { conditions } from '../utils/conditionsWeather';
+/*
+ Import d'un composant propre à expo
+*/
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+/*
+ Création du composant météo "Weather" prenant en paramètre le libelle de temps et la température en degré Celcius
+*/
 const Weather = ({ weather, temperature }) => {
   return (
-    <View style={[ styles.weatherContainer, { backgroundColor: conditions.weather.color } ]} >
+    <View style={[ styles.weatherContainer, { backgroundColor: conditions[weather].color } ]} >
       <View style={styles.headerContainer}>
         <MaterialCommunityIcons
           size={82}
           name={conditions[weather].icon}
-          color={'#fff'}
+          color={'#ffffff'}
         />
         <Text style={styles.tempText}>{temperature}˚</Text>
       </View>
@@ -23,11 +37,17 @@ const Weather = ({ weather, temperature }) => {
   );
 };
 
+/*
+ On définit ici les propTypes
+*/
 Weather.propTypes = {
     temperature: PropTypes.number.isRequired,
     weather: PropTypes.string
-  };
+};
 
+/*
+ On définit le style pour le composant Weather
+*/
 const styles = StyleSheet.create({
   weatherContainer: {
     flex: 1

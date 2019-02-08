@@ -1,29 +1,29 @@
 # Bienvenue sur Rweather
-L'application utile et ludique de météo
+**L'application utile et ludique de météo**
 
-Les prérequis : 
+__Les prérequis :__
 
-Avoir installé node et npm aux dernières versions stables
-Avoir installé expo
+- Avoir installé node et npm aux dernières versions stables
+- Avoir installé expo
 
-Pour récupèrer le projet : 
+__Pour récupèrer le projet :__ 
 
-git clone https://github.com/rsoufir/react-weather.git
+*git clone https://github.com/rsoufir/react-weather.git*
 
-Se placer sur le répertoire racine du projet : 
+__Se placer sur le répertoire racine du projet :__ 
 
-cd react-weather
+*cd react-weather*
 
-On installe ensuite toutes les dépendances du projet en lancant un : 
+__On installe ensuite toutes les dépendances du projet en lancant un :__ 
 
-npm install
+*npm install*
 
-Puis on lance expo via la commande : 
+__Puis on lance expo via la commande :__ 
 
-expo start
+*expo start*
 
 On est ensuite redirigé vers la page web qui nous permet via url ou qrcode de visualiser l'app sur l'application mobile Expo.
 
 Le projet se build et après 100%, on peut utiliser l'app sur le mobile.
 
-Bonne utilisation sur Rweather ! 
+__Bonne utilisation sur Rweather !__ 

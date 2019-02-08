@@ -6,7 +6,7 @@ import Weather from './components/weather';
 
 export default class App extends React.Component {
   state = {
-    isLoading: false,
+    isLoading: true,
     temperature: 0,
     weatherCondition: null,
     error: null
@@ -25,7 +25,7 @@ export default class App extends React.Component {
     );
   }
 
-  getWeather(lat = 20, lon = 20) {
+  getWeather(lat, lon) {
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
     )
@@ -44,7 +44,7 @@ export default class App extends React.Component {
     const { isLoading, weatherCondition, temperature } = this.state;
     return (
       <View style={styles.container}>
-        {isLoading ? <Text>Recherche de la météo en cours...</Text> : <Weather weather={weatherCondition} temperature={temperature} />
+        {isLoading ? (<Text>Recherche de la météo en cours...</Text>) : (<Weather weather={weatherCondition} temperature={temperature} />)
         }
       </View>
     );

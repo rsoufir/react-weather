@@ -22,7 +22,8 @@ export default class App extends React.Component {
     isLoading: true,
     temperature: 0,
     weatherCondition: null,
-    error: null
+    error: null,
+    city: null
   };
 
   // se lance au chargement de l'application
@@ -61,24 +62,25 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(json => {
         /*
-         On met à jour le state par rapport aux données de météo (température et libellé du temps) récupérées
+         On met à jour le state par rapport aux données de météo (température, libellé du temps, et ville) récupérées
          On set aussi le boolean isLoading à false pour ne plus afficher le message mentionnant que la 
          recherche de météo est en cours mais bel et bien la météo courante.
         */
          this.setState({
           temperature: json.main.temp.toFixed(1),
           weatherCondition: json.weather[0].main,
-          isLoading: false
+          isLoading: false,
+          city: json.name
         });
       });
   }
 
   render() {
     // on exporte les variables issues du state
-    const { isLoading, weatherCondition, temperature } = this.state;
+    const { isLoading, weatherCondition, temperature, city } = this.state;
     return (
       <View style={styles.container}>
-        {isLoading ? (<Text>Recherche de la météo en cours...</Text>) : (<Weather weather={weatherCondition} temperature={temperature} />)
+        {isLoading ? (<Text>Recherche de la météo en cours...</Text>) : (<Weather weather={weatherCondition} temperature={temperature} city={city} />)
         }
       </View>
     );

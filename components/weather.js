@@ -15,9 +15,9 @@ import { conditions } from '../utils/conditionsWeather';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 /*
- Création du composant météo "Weather" prenant en paramètre le libelle de temps et la température en degré Celcius
+ Création du composant météo "Weather" prenant en paramètre le libelle de temps, la température en degré Celcius, et la ville
 */
-const Weather = ({ weather, temperature }) => {
+const Weather = ({ weather, temperature, city }) => {
   return (
     <View style={[styles.weatherContainer, { backgroundColor: conditions[weather].color } ]} >
       <View style={styles.headerContainer}>
@@ -27,6 +27,9 @@ const Weather = ({ weather, temperature }) => {
           color={'#ffffff'}
         />
         <Text style={styles.tempText}>{temperature}˚</Text>
+      </View>
+      <View style={styles.cityContainer}>
+        <Text style={styles.city}>{city}</Text>
       </View>
       <View style={styles.bodyContainer}>
         <Text style={styles.titre}>{conditions[weather].title}</Text>
@@ -48,7 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    marginTop: 30
+    marginTop: 50
   },
   tempText: {
     fontSize: 75,
@@ -60,6 +63,16 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     paddingLeft: 30,
     marginBottom: 50
+  },
+  cityContainer: {
+      flex: 1
+  },
+  city: {
+    fontSize: 40,
+    color: '#fff',
+    paddingRight: 5,
+    paddingLeft: 5,
+    marginTop: 40
   },
   titre: {
     fontSize: 45,

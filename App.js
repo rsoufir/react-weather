@@ -66,7 +66,7 @@ export default class App extends React.Component {
          recherche de météo est en cours mais bel et bien la météo courante.
         */
          this.setState({
-          temperature: json.main.temp.toFixed(2),
+          temperature: json.main.temp.toFixed(1),
           weatherCondition: json.weather[0].main,
           isLoading: false
         });
